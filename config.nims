@@ -1,7 +1,9 @@
 --os:linux # Emscripten pretends to be linux.
---cpu:wasm32 # Emscripten is 32bits.
+--cpu:i386 # Emscripten is 32bits.
 --cc:clang # Emscripten is very close to clang, so we ill replace it.
 --passC:"-s STANDALONE_WASM" # Standalone WASM files
+--out:main.wasm
+
 when defined(windows):
   --clang.exe:emcc.bat  # Replace C
   --clang.linkerexe:emcc.bat # Replace C linker
