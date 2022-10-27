@@ -1,5 +1,6 @@
 tasks:
-  - init: |
+  - name: "Install Nim"
+    init: |
       curl https://nim-lang.org/choosenim/init.sh -sSf > choosenim.sh
       sh choosenim.sh -y
       rm choosenim.sh
@@ -8,23 +9,19 @@ tasks:
       choosenim devel
       gp sync-done niminstall
       exit
-  - init: |
+  - name: "Download asmble"
+   init: |
       wget https://github.com/cretz/asmble/releases/download/0.4.0/asmble-0.4.0.zip
       unzip asmble-0.4.0.zip
       rm asmble-0.4.0.zip
       gp sync-done asmbledownload
       exit
-  - init: |
+  - name: "Install Clang + Emscripten"
+    init: |
       sudo apt-get update
       sudo apt install cmake python-is-python3 python3-distutils clang -y
       git clone https://github.com/emscripten-core/emsdk.git && cd emsdk && ./emsdk install latest && ./emsdk activate latest && cd ..
+      echo "" >> ~/.bashrc
+      echo "source $(realpath emsdk/emsdk_env.sh)" >> ~/.bashrc
       gp sync-done emccinstall
       exit
-  - init: |
-      gp sync-await niminstall
-      gp sync-await asmbledownload
-      gp sync-await emccinstall
-    command: |
-      eval $(gp env -e)
-      export PATH=$PATH:$HOME/.nimble/bin
-      source emsdk/emsdk_env.sh
