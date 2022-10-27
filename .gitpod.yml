@@ -23,7 +23,6 @@ tasks:
       gp sync-await asmbledownload
       gp sync-await emccinstall
     command: |
-      export PATH=$PATH:$HOME/.nimble/bin
       eval $(gp env -e)
+      export PATH=$PATH:$HOME/.nimble/bin
       source emsdk/emsdk_env.sh
-      choosenim devel
