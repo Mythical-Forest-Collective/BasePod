@@ -10,7 +10,7 @@ tasks:
       gp sync-done niminstall
       exit
   - name: "Download asmble"
-   init: |
+    init: |
       wget https://github.com/cretz/asmble/releases/download/0.4.0/asmble-0.4.0.zip
       unzip asmble-0.4.0.zip
       rm asmble-0.4.0.zip
