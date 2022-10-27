@@ -1,6 +1,6 @@
 tasks:
   - init: |
-      curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+      curl https://nim-lang.org/choosenim/init.sh -sSf | sh -y
       gp env PATH=$PATH:$HOME/.nimble/bin
       eval $(gp env -e)
       choosenim devel
