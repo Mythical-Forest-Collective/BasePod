@@ -27,3 +27,11 @@ tasks:
       echo "source $(realpath emsdk/emsdk_env.sh)" >> ~/.bashrc
       gp sync-done emccinstall
       exit
+  - name: "Wait for completion"
+    init: |
+      gp sync-await asmbledownload
+      gp sync-await wasmtimeinstall
+      gp sync-await niminstall
+      gp sync-await clanginstall
+      gp sync-await emccinstall
+      exit
