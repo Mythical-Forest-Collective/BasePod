@@ -22,7 +22,8 @@ tasks:
     init: |
       sudo apt-get update
       sudo apt install cmake python-is-python3 python3-distutils clang -y
-      git clone https://github.com/emscripten-core/emsdk.git && cd emsdk && ./emsdk install latest && ./emsdk activate latest && cd ..
+      gp sync-done clanginstall
+      cd emsdk && ./emsdk install latest && ./emsdk activate latest && cd ..
       echo "" >> ~/.bashrc
       echo "source $(realpath emsdk/emsdk_env.sh)" >> ~/.bashrc
       gp sync-done emccinstall
