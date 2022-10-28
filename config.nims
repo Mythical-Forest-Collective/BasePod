@@ -1,12 +1,14 @@
---define:asm
---define:emscripten
+--define:"asm"
+--define:"emscripten"
 
 --threads:off
+--nomain
 
 --os:linux # Emscripten pretends to be linux.
 --cpu:wasm32 # Emscripten is 32bits.
 --cc:clang # Emscripten is very close to clang, so we ill replace it.
 --passC:"-s STANDALONE_WASM" # Standalone WASM files
+#--passC:"-sEXPORTED_RUNTIME_METHODS=" # Expose methods to WASM
 --out:main.wasm
 
 when defined(windows):
