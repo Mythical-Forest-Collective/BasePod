@@ -12,7 +12,7 @@ tasks:
   - name: "Download asmble + Install wasmtime"
     init: |
       wget https://github.com/cretz/asmble/releases/download/0.4.0/asmble-0.4.0.zip
-      unzip asmble-0.4.0.zip
+      unzip -o asmble-0.4.0.zip
       rm asmble-0.4.0.zip
       gp sync-done asmbledownload
       curl https://wasmtime.dev/install.sh -sSf | bash
