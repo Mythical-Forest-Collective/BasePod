@@ -1,5 +1,10 @@
+--define:asm
+--define:emscripten
+
+--threads:off
+
 --os:linux # Emscripten pretends to be linux.
---cpu:i386 # Emscripten is 32bits.
+--cpu:wasm32 # Emscripten is 32bits.
 --cc:clang # Emscripten is very close to clang, so we ill replace it.
 --passC:"-s STANDALONE_WASM" # Standalone WASM files
 --out:main.wasm
