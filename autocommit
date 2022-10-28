@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+from sys import argv
+from os import system
+
+del argv[0]
+
+print("[Autocommit Start]")
+code = system("git add . && git commit -am \""+' '.join(argv)+"\" && git push")
+print("[Autocommit End]")
+
+exit(code)
